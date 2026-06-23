@@ -1,9 +1,9 @@
 resource "aws_alb" "prod_alb" {
-  name            = "prod-alb"
-  security_groups = []
-  subnets         = []
+  name            = "dev-alb"
+  security_groups = [aws_security_group.cicd_sg.id]
+  subnets         = [aws_subnet.public_subnet.id]
   tags = {
-    Name = "prod-alb"
+    Name = "dev-alb"
   }
 }
 
